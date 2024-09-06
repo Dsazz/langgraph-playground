@@ -1,6 +1,0 @@
-node_modules/
-dist
-.env
-.idea
-.vscode
-src/generated/**
