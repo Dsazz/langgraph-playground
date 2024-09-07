@@ -1,6 +1,6 @@
 {
   "name": "social-media-post-generator",
-  "description": "Social Media Post Generator",
+  "description": "AI-powered LinkedIn post generator using TypeScript, LangChain, and LangGraph. Automatically creates and critiques text, generates images via DALL-E, and provides a final user approval step before publishing.",
   "version": "0.0.1",
   "author": "Stanislav Stepanenko",
   "license": "MIT",
