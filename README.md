@@ -14,7 +14,7 @@ LangChain is a framework designed to simplify the development of applications us
 - **Tools**: External systems or APIs that agents use to perform tasks outside the model itself, such as:
     - **Web Search APIs**: Gather information from the web.
     - **DALL-E Image Generator**: Generate images based on prompts.
-    - **Python Execution Tool**: Execute calculations or scripts within a workflow.
+    - **And etc.**
 
 ### LangGraph
 LangGraph builds on LangChain to introduce a more graphical approach to building workflows. It focuses on defining nodes (steps) and their connections, allowing users to visualize and manage the data flow more easily.
