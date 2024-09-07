@@ -2,6 +2,18 @@
 
 This repository contains various projects built with **LangChain** and **LangGraph**. These frameworks enable the creation of robust, modular, and flexible AI applications.
 
+---
+
+## Visual Overview
+
+### LangChain Workflow
+![LangChain Workflow](./assets/images/langchain-workflow.png)
+
+### LangGraph Nodes
+![LangGraph Nodes](./assets/images/langgraph-nodes.png)
+
+---
+
 ## Basic Terminology
 
 ### LangChain
@@ -103,13 +115,3 @@ This proposed structure can be used as a starting point for any AI-driven projec
 
 - [Social Media Post Generator](./social-media-post-generator): Automates the creation of LinkedIn posts using AI for text generation, critique, and image creation.
 - *More projects coming soon!*
-
----
-
-## Visual Overview
-
-### LangChain Workflow
-![LangChain Workflow](./assets/images/langchain-workflow.png)
-
-### LangGraph Nodes
-![LangGraph Nodes](./assets/images/langgraph-nodes.png)
