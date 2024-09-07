@@ -1,77 +1,115 @@
-# LinkedIn Post Generator with AI Agents
+# AI Projects Overview
 
-This project automates the generation of LinkedIn posts, including both text and images, using AI-powered agents. It is built using [LangChain](https://github.com/hwchase17/langchain) and [LangGraph](https://github.com/langgraph/langgraph) and written in **TypeScript** for a modular and type-safe development environment.
+This repository contains various projects built with **LangChain** and **LangGraph**. These frameworks enable the creation of robust, modular, and flexible AI applications.
 
-## Features
+## Basic Terminology
 
-- **Text Generation**: Automatically generates text for LinkedIn posts based on provided context.
-- **Image Generation**: Uses a DALL-E model to generate images from AI-generated prompts.
-- **Text Post Critique and Rewriting**: Includes AI agents to critique and rewrite the generated text post for quality improvements.
-- **Image Prompt Generation**: After the text post passes critique, an AI agent automatically generates a DALL-E prompt based on the post context to ensure the image reflects the content.
-- **Image Creation**: Based on the generated DALL-E prompt, the image creation node produces the final image for the LinkedIn post.
-- **User Decision Node**: A final decision node allows users to review the post and image. As part of this step, the user can either approve, regenerate the post or image, or discard the content before publishing to LinkedIn.
+### LangChain
+LangChain is a framework designed to simplify the development of applications using large language models (LLMs). It abstracts and connects various components such as models, chains, agents, and memory to handle text-based workflows efficiently.
 
-## How It Works
+#### Key Concepts:
+- **Chains**: A sequence of processing steps to solve a task.
+- **Memory**: State that persists throughout a conversation or task execution.
+- **Agents**: Dynamic decision-makers that invoke different tools or chains based on the problem.
+- **Tools**: External systems or APIs that agents use to perform tasks outside the model itself, such as:
+    - **Web Search APIs**: Gather information from the web.
+    - **DALL-E Image Generator**: Generate images based on prompts.
+    - **Python Execution Tool**: Execute calculations or scripts within a workflow.
 
-1. **Text and Image Generation**: 
-   - The system begins by generating both text and an image for the LinkedIn post based on the context provided by the user.
-   
-2. **Post Critique and Rewriting**:
-   - After generating the text, an AI agent critiques it and optionally rewrites it to enhance clarity, tone, and engagement.
-   
-3. **Image Prompt Generation**:
-   - Once the text post passes the critique stage, the system automatically generates a DALL-E prompt based on the post context. This prompt ensures the image is relevant to the content.
+### LangGraph
+LangGraph builds on LangChain to introduce a more graphical approach to building workflows. It focuses on defining nodes (steps) and their connections, allowing users to visualize and manage the data flow more easily.
 
-4. **Image Creation**:
-   - After generating the prompt, the image creation node uses this prompt to produce the final image for the LinkedIn post.
+#### Key Concepts:
+- **Nodes**: Individual steps or operations within a workflow.
+- **Edges**: The connections that dictate the flow of data between nodes.
 
-5. **Publishing Decision**:
-   - In the final step, the user reviews both the text and image. The user can choose to:
-     - Approve and publish the content to LinkedIn.
-     - Regenerate either the text or the image if unsatisfied.
-     - Discard the content and exit the process.
+---
 
-## Installation
+## Additional Terminology
 
-1. Clone this repository:
+### Vector Stores
+**Vector Stores** (like memory-based vector stores) are a key component for handling embeddings and large-scale data. Vectors represent data points in a high-dimensional space, commonly used for tasks like document retrieval and similarity search.
 
-    ```bash
-    git clone https://github.com/Dsazz/langgraph-playground.git
-    cd langgraph-playground
-    ```
+* Vector embeddings are numerical representations of data that capture essential features and relationships within the data.
+* So Information is converted into vector embeddings — or simply “vectors” — which are then used for predictions, interpretation, comparison, and other cognitive functions.
 
-2. Install the required dependencies:
+#### How do vector databases work ?
 
-    ```bash
-    npm install
-    ```
+![Vector Store Workflow](./assets/images/vector-store-workflow.webp)
 
-3. Set up your `.env` file:
-    ```bash
-    cp .env.example .env
-    ```
+* Vector databases transform data, such as text, into vectors using embedding algorithms, which are then stored. For text, embeddings capture the semantic meaning of words, phrases, sentences, or even entire documents. These embeddings are often produced by deep learning models like Word2Vec, FastText, or BERT.
+* When a user submits a query, it is also converted into a vector using the same embedding algorithm. The query vector is then compared to the stored vectors to find the closest matches. Essentially, the database is being queried for vectors that are similar to the query's vector embedding.
+* The key feature of vector databases is their ability to perform "similarity searches." Instead of traditional keyword-based searches that look for exact matches, similarity searches focus on finding vectors that are "close" to the query vector in a high-dimensional space. This closeness is usually determined by metrics such as cosine similarity or Euclidean distance.
 
-## Usage
+#### How Do Vector Databases Store Data?
 
-1. **Start the Text and Image Generation Process**:
+![Vector Database How It Looks](./assets/images/vector-database-how-it-looks.png)
 
-   ```bash
-   npm run start
-   ```
+Vector databases save data by turning it into numbers called vectors. These numbers represent things like items or documents in a way that shows their features. If two things are similar, their numbers will be close to each other. If they are different, their numbers will be further apart. This makes it easy for the database to find things that are alike.
 
-2. **Post Critique and Image Generation**:
-   - The AI agent will critique the text post. Once the critique is successful, the system automatically generates a DALL-E prompt and creates the corresponding image.
+#### Memory Vector Store
+A **Memory Vector Store** is a form of memory that stores these vectors for use across chains and workflows. It allows an AI agent to "remember" embeddings and refer back to previously generated data.
 
-3. **Publishing Decision**:
-   - After reviewing both the post and image, the user can choose to:
-     - Publish the content to LinkedIn.
-     - Regenerate the post or image.
-     - Discard the content.
+Key concepts:
+- **Embeddings**: Numerical representations of text, images, or other data types, stored as vectors.
+- **Similarity Search**: Matching vectors to find relevant data, often used in document retrieval or search tasks.
 
-## Contributing
+#### Vector Store Comparison with Traditional Databases
+![Vector Store Comparison](./assets/images/vector-store-comparison.jpeg)
 
-Feel free to submit issues or pull requests for any improvements or bug fixes.
+---
 
-## License
+## Example Project Structure Template
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This is my proposed project structure for organizing AI-based projects using LangChain and LangGraph. It is modular and designed to be flexible, allowing it to be extended for workflows involving text generation, image creation, critique, and publishing decisions.
+
+```perl
+src/
+├── cli/
+│   └── commands/
+│       ├── command.handler.ts      # Command handler logic for CLI interactions
+│       └── ...
+│
+├── conditions/
+│   ├── should-continue.condition.ts      # Logic to determine if the workflow should continue
+│   └── ...
+│
+├── constants/
+│   ├── prompt-terminology.constant.ts  # Constants for prompt terminology used across agents and nodes
+│   └── ...
+│
+├── nodes/
+│   ├── context-preparation/           # Prepares the context for the post generation
+│   └── ...
+│
+├── state/
+│   ├── models/                        # Data models and states
+│   └── agent.state.ts                 # Manages agent states in the workflow
+│
+└── utils/ # Utility functions for various workflow operations
+```
+
+### Explanation:
+* **cli/commands**: Handles command-line interactions, typically for setting up or managing workflows.
+* **conditions**: Contains files defining the conditions that influence decisions, such as whether to continue rewriting or publish the post.
+* **constants**: Stores shared constants, such as prompt terminology, across the project.
+* **nodes**: The core processing logic, with each node handling a specific aspect of the workflow:
+* **state**: Handles the state management, such as storing agent states and arguments.
+* **utils**: Utility functions to support the workflow operations, making the project more modular and reusable.
+
+This proposed structure can be used as a starting point for any AI-driven project involving workflows, decision-making, and content generation.
+
+## List of Projects
+
+- [Social Media Post Generator](./social-media-post-generator): Automates the creation of LinkedIn posts using AI for text generation, critique, and image creation.
+- *More projects coming soon!*
+
+---
+
+## Visual Overview
+
+### LangChain Workflow
+![LangChain Workflow](./assets/images/langchain-workflow.png)
+
+### LangGraph Nodes
+![LangGraph Nodes](./assets/images/langgraph-nodes.png)
