@@ -59,11 +59,11 @@ LangGraph builds on LangChain to introduce a more graphical approach to building
 
 Vector databases save data by turning it into numbers called vectors. These numbers represent things like items or documents in a way that shows their features. If two things are similar, their numbers will be close to each other. If they are different, their numbers will be further apart. This makes it easy for the database to find things that are alike.
 
-#### Memory Vector Store
-A **Memory Vector Store** is a form of memory that stores these vectors for use across chains and workflows. It allows an AI agent to "remember" embeddings and refer back to previously generated data.
-
-Key concepts:
+#### Key concepts:
 - **Embeddings**: Numerical representations of text, images, or other data types, stored as vectors.
+  > Embedding is like giving each item, whether it's a word, image, or something else, a unique code that captures its meaning or essence. This code helps computers understand and compare these items in a more efficient and meaningful way. Think of it as turning a complicated book into a short summary that still captures the main points.
+
+  ![Embeddings](./assets/images/embedding.png)
 - **Similarity Search**: Matching vectors to find relevant data, often used in document retrieval or search tasks.
 
 #### Vector Store Comparison with Traditional Databases
