@@ -1,0 +1,7 @@
+# Ignore the models directory
+models/*
+
+# Ignore Python virtual environments or other unnecessary files
+*.pyc
+__pycache__/
+*.pyo

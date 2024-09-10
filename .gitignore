@@ -3,4 +3,6 @@ dist
 .env
 .idea
 .vscode
+.venv
+venv
 src/generated/**

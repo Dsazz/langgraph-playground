@@ -1,0 +1,8 @@
+node_modules/
+dist
+.env
+.idea
+.vscode
+src/images/generated/**
+src/tools-service/models/**
+src/tools-service/.venv

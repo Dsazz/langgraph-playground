@@ -1,0 +1,19 @@
+services:
+  tools-service:
+    build:
+      context: ./src/tools-service
+    deploy:
+      resources:
+        limits:
+          memory: 48G
+    environment:
+      - PYTORCH_ENABLE_MPS_FALLBACK=1
+    volumes:
+      - ./src/tools-service/app.py:/app/app.py
+      - ./src/tools-service/requirements.txt:/app/requirements.txt
+      - ./src/tools-service/models:/app/models
+      - ./src/tools-service/generated_images:/app/generated_images
+      - ./src/images:/app/images # Mount image folder for OCR
+      - ./src/audio:/app/audio # Mount audio folder for ASR
+    ports:
+      - "8000:8000"
