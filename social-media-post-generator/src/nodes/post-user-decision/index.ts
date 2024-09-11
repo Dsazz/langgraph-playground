@@ -37,19 +37,14 @@ export const postUserDecisionNode = async ({
     POST_USER_DECISION_COMMANDS,
     NODE_POST_USER_DECISION,
   );
+  const commandOptions = Object.values(POST_USER_DECISION_COMMANDS);
   let decidedPath = "";
   while (!decidedPath) {
     const userInput = await promptUser(
-      `Please enter a command (${cliHandler.getCommandDescription()}): `,
+      "Please select the next action:",
+      commandOptions,
     );
     decidedPath = cliHandler.handleCommand(userInput);
-
-    if (!decidedPath) {
-      logger.warn(
-        NODE_POST_USER_DECISION,
-        "Re-prompting the user for valid input...",
-      );
-    }
   }
 
   return {

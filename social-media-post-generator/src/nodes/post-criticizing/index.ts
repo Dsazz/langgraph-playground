@@ -22,7 +22,6 @@ import {
 } from "@constants/prompt-terminology.constant";
 import { logger } from "@utils/colored-log.util";
 import { z } from "zod";
-import { NODE_POST_CREATION } from "@nodes/post-creation";
 import { GraphState } from "@state/graph-args.state";
 import { POST_APPROVED_MARK } from "@state/models/post-data.model";
 
@@ -72,7 +71,6 @@ export const postCriticizingNode = async ({
             ${AND} contains ${ONLY} the information from the ${CONTEXT} data.
           ${DO_NOT} use internet search engines to find additional information.
       `),
-      // It's important to follow the instructions clearly, because people's lives depend on it.
     ),
   ]);
   const chain = chatPrompt.pipe(getLLM());

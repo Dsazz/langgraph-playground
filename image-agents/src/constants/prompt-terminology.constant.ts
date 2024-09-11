@@ -5,6 +5,7 @@ export const CONTEXT = "CONTEXT";
 
 // Prompt operators
 export const MUST = "MUST";
+export const MUST_NOT = "MUST_NOT";
 export const MUST_USE = "MUST USE";
 export const SHOULD = "SHOULD";
 export const USE_ONLY = "USE ONLY";
@@ -20,8 +21,3 @@ export const THEN = "THEN";
 export const AND = "AND";
 export const OR = "OR";
 export const WHEN = "WHEN";
-
-// Prompt context terms
-export const CRITIQUE = "CRITIQUE";
-export const LINKEDIN_POST = "LINKEDIN POST";
-export const DALL_E = "DALL-E";

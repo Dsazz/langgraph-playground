@@ -1,8 +1,0 @@
-fastapi
-uvicorn
-transformers
-accelerate
-sentencepiece
-protobuf
-pillow
-librosa

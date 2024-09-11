@@ -4,7 +4,12 @@ import { GraphState } from "@state/graph-args.state";
 import { NODE_POST_REWRITING } from "@nodes/post-rewriting";
 import { NODE_POST_IMAGE_PROMPT_CREATION } from "@nodes/post-image-prompt-creation";
 
-const shouldContinueRewriting = (state: Channel): string => {
+type Output =
+  | typeof NODE_POST_IMAGE_PROMPT_CREATION
+  | typeof NODE_POST_REWRITING
+  | typeof END;
+
+const shouldContinueRewriting = (state: Channel): Output => {
   const { handlingInfo, postData } = (state as GraphState).agentState;
   const { output } = handlingInfo;
   if (postData.isRewritingLimitReached()) {

@@ -1,0 +1,9 @@
+# Ignore the models directory
+models/*
+images/cropped/*
+images/generated/*
+
+# Ignore Python virtual environments or other unnecessary files
+*.pyc
+__pycache__/
+*.pyo

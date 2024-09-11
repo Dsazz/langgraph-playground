@@ -2,23 +2,24 @@ import { NODE_POST_PUBLISHING } from "@nodes/post-publishing";
 import { NODE_CONTEXT_PREPARATION } from "@nodes/context-preparation";
 import { END } from "@langchain/langgraph";
 import { NODE_POST_IMAGE_PROMPT_CREATION } from "@nodes/post-image-prompt-creation";
+import { Command } from "@cli/command.handler";
 
 const POST_USER_DECISION_COMMANDS = Object.freeze({
   YES: {
-    value: "Y",
-    description: "Approve and Publish Post",
-    nextNode: NODE_POST_PUBLISHING,
+    key: "Y",
+    name: "Approve and Publish Post",
+    value: NODE_POST_PUBLISHING,
   },
   RECREATE: {
-    value: "R",
-    description: "Recreate Post",
-    nextNode: NODE_CONTEXT_PREPARATION,
+    key: "R",
+    name: "Recreate Post",
+    value: NODE_CONTEXT_PREPARATION,
   },
   NEW_IMAGE: {
-    value: "I",
-    description: "Generate New Image",
-    nextNode: NODE_POST_IMAGE_PROMPT_CREATION,
+    key: "I",
+    name: "Generate New Image",
+    value: NODE_POST_IMAGE_PROMPT_CREATION,
   },
-  EXIT: { value: "E", description: "Exit", nextNode: END },
-});
+  EXIT: { key: "E", name: "Exit", value: END },
+} as Record<string, Command>);
 export default POST_USER_DECISION_COMMANDS;

@@ -1,0 +1,11 @@
+node_modules/
+dist
+.env
+.idea
+.vscode
+
+src/images/generated/**
+src/images/cropped/**
+
+src/tools-service/models/**
+src/tools-service/.venv

@@ -1,0 +1,17 @@
+fastapi
+python-multipart
+pydantic
+
+uvicorn
+sentencepiece
+protobuf
+librosa
+
+torch
+torchvision
+pillow
+
+pandas
+opencv-python
+transformers
+accelerate

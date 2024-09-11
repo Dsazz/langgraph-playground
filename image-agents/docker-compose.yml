@@ -1,0 +1,18 @@
+services:
+  tools-service:
+    build:
+      context: ./src/tools-service
+    deploy:
+      resources:
+        limits:
+          memory: 48G
+    environment:
+      - PYTORCH_ENABLE_MPS_FALLBACK=1
+    volumes:
+      - ./src/tools-service/app.py:/app/app.py
+      - ./src/tools-service/requirements.txt:/app/requirements.txt
+      - ./src/tools-service/download-models.sh:/app/download-models.sh
+      - ./src/tools-service/models:/app/models
+      - ./src/images:/app/images
+    ports:
+      - "8000:8000"

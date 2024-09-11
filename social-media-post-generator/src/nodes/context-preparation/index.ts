@@ -54,13 +54,4 @@ export const contextPreparationNode = async ({
       }),
     }),
   };
-  // return {
-  //   agentState: {
-  //     ...agentState,
-  //     handledBy: NODE_CONTEXT_PREPARATION,
-  //     input: agentState.output,
-  //     output: context,
-  //     context,
-  //   },
-  // };
 };
