@@ -2,6 +2,11 @@
 
 This repository contains various projects built with **LangChain** and **LangGraph**. These frameworks enable the creation of robust, modular, and flexible AI applications.
 
+## Current Projects
+
+1. [Social Media Post Generator](./social-media-post-generator): Automates the creation of LinkedIn (can be replaced) posts using AI for text generation, critique, and image creation.
+2. [Image Agents](./image-agents): Handles image-related workflows using LangChain and LangGraph, including image recognition, creation, and people cropping.
+
 ---
 
 ## Visual Overview
