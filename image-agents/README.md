@@ -9,33 +9,6 @@ This project is designed for handling image-related workflows using LangChain an
 - **People Cropping**: Crop the photo around people, adjusting the size of the image to match the contour where people are located, so only the people remain.
 - **Dynamic Workflow**: A state graph defines conditional workflows that interact with users and process images accordingly.
 
-## Project Structure
-
-```
-image-agents/
-├── src/                                   # Source code
-│   ├── cli/                               # Command-line utilities
-│   ├── conditions/                        # Conditions for workflow decisions
-│   ├── constants/                         # Project constants
-│   ├── images/                            # Image assets
-│   │   ├── cropped/                       # Cropped images
-│   │   └── generated/                     # Generated images
-│   ├── nodes/                             # Workflow nodes
-│   │   ├── choose-agent-type/             # Node for choosing the type of agent
-│   │   ├── image-creation/                # Nodes for image creation process
-│   │   ├── image-people-cropping/         # Nodes for people cropping process
-│   │   └── image-recognition/             # Nodes for image recognition process
-│   ├── state/                             # State management for graph arguments
-│   ├── tools/                             # General tools and utilities
-│   ├── tools-service/                     # Dockerized tools for image captioning and processing
-│   ├── utils/                             # Utility functions like error handling and logging
-│   └── index.ts                           # Main entry point for running the workflow
-├── .env.example                           # Example environment configuration
-├── docker-compose.yml                     # Docker Compose configuration for services
-├── langgraph.json                         # LangGraph workflow configuration
-├── package.json                           # Node.js project metadata and dependencies
-```
-
 ## Workflows
 
 The image-related workflows are defined using LangGraph's state machine. The main workflows include:
@@ -94,6 +67,29 @@ The workflows are orchestrated by the state graph defined in `index.ts`. A typic
    ```
 
 This will invoke the defined state graph and handle the image workflows.
+
+## Project Structure
+
+```
+├── src/                                   # Source code
+│   ├── cli/                               # Command-line utilities
+│   ├── conditions/                        # Conditions for workflow decisions
+│   ├── constants/                         # Project constants
+│   ├── images/                            # Image assets
+│   │   ├── cropped/                       # Cropped images
+│   │   └── generated/                     # Generated images
+│   ├── nodes/                             # Workflow nodes
+│   │   ├── choose-agent-type/             # Node for choosing the type of agent
+│   │   ├── image-creation/                # Nodes for image creation process
+│   │   ├── image-people-cropping/         # Nodes for people cropping process
+│   │   └── image-recognition/             # Nodes for image recognition process
+│   ├── state/                             # State management for graph arguments
+│   ├── tools/                             # General tools and utilities
+│   ├── tools-service/                     # Dockerized tools for image captioning and processing
+│   ├── utils/                             # Utility functions like error handling and logging
+│   └── index.ts                           # Main entry point for running the workflow
+```
+
 
 ## License
 
