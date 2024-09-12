@@ -2,6 +2,8 @@
 
 This project automates the generation of social media posts (at the moment ONLY for LinkedIn), including both text and images, using AI-powered agents. It is built using [LangChain](https://github.com/hwchase17/langchain) and [LangGraph](https://github.com/langgraph/langgraph) and written in **TypeScript** for a modular and type-safe development environment.
 
+![Social Media Post Generator](../assets/images/social-media-post-generator.gif)
+
 ## Features
 
 - **Text Generation**: Automatically generates text for social media posts based on provided context.
