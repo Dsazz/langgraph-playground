@@ -6,6 +6,7 @@ This repository contains various projects built with **LangChain** and **LangGra
 
 1. [Social Media Post Generator](./social-media-post-generator): Automates the creation of LinkedIn (can be replaced) posts using AI for text generation, critique, and image creation.
 2. [Image Agents](./image-agents): Handles image-related workflows using LangChain and LangGraph, including image recognition, creation, and people cropping.
+3. *More projects coming soon!*
 
 ---
 
@@ -136,9 +137,3 @@ workflow-name/
 * **utils**: Utility functions to support the workflow operations, making the project more modular and reusable.
 
 This proposed structure can be used as a starting point for any AI-driven project involving workflows, decision-making, and content generation.
-
-## List of Projects
-
-- [Social Media Post Generator](./social-media-post-generator): Automates the creation of LinkedIn posts using AI for text generation, critique, and image creation.
-- [Image Agents](./image-agents): Handles image-related workflows using LangChain and LangGraph, including image recognition, creation, and people cropping.
-- *More projects coming soon!*
