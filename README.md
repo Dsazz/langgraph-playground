@@ -140,4 +140,5 @@ This proposed structure can be used as a starting point for any AI-driven projec
 ## List of Projects
 
 - [Social Media Post Generator](./social-media-post-generator): Automates the creation of LinkedIn posts using AI for text generation, critique, and image creation.
+- [Image Agents](./image-agents): Handles image-related workflows using LangChain and LangGraph, including image recognition, creation, and people cropping.
 - *More projects coming soon!*
