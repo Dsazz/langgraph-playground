@@ -81,29 +81,50 @@ Vector databases save data by turning it into numbers called vectors. These numb
 This is my proposed project structure for organizing AI-based projects using LangChain and LangGraph. It is modular and designed to be flexible, allowing it to be extended for workflows involving text generation, image creation, critique, and publishing decisions.
 
 ```perl
-src/
-├── cli/
-│   └── commands/
-│       ├── command.handler.ts      # Command handler logic for CLI interactions
-│       └── ...
-│
-├── conditions/
-│   ├── should-continue.condition.ts      # Logic to determine if the workflow should continue
+common/
+├── src/
+│   ├── cli/
+│   │    ├── command.handler.ts
+│   │    └── ...
+│   │
+│   ├── constants/
+│   │    ├── prompt-terminology.constant.ts  # Constants for prompt terminology used across agents and nodes
+│   │    └── ...
+│   │
+│   ├── utils/
+│   │    ├── prompt-user.util.ts
+│   │    └── ...
+│   │
 │   └── ...
 │
-├── constants/
-│   ├── prompt-terminology.constant.ts  # Constants for prompt terminology used across agents and nodes
-│   └── ...
-│
-├── nodes/
-│   ├── context-preparation/           # Prepares the context for the post generation
-│   └── ...
-│
-├── state/
-│   ├── models/                        # Data models and states
-│   └── agent.state.ts                 # Manages agent states in the workflow
-│
-└── utils/ # Utility functions for various workflow operations
+workflow-name/
+  src/
+  ├── cli/
+  │   └── commands/                       # Commands for setting up or managing the workflow
+  │       └── ...
+  │
+  ├── conditions/
+  │   ├── should-continue.condition.ts      # Logic to determine if the workflow should continue
+  │   └── ...
+  │
+  ├── nodes/
+  │   ├── context-preparation/           # Prepares the context for the post generation
+  │   └── ...
+  │
+  ├── state/
+  │   ├── models/                        # Data models and states
+  │   ├── agent-state.ts                 # Handles agent states and arguments
+  │   └── graph-args.state.ts            # Handles arguments for LangGraph nodes
+  │
+  ├── tools/                             # External systems or APIs used by agents
+  │   ├── dalle-image-generator.ts       # DALL-E image generation tool
+  │   └── ...
+  │
+  └── tools-service/                    # Python-based services for AI tools
+        ├── models/                     # Data models for AI tools
+        ├── app.py                      # Flask app for serving AI tools
+        └── ...
+  
 ```
 
 ### Explanation:

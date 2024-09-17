@@ -35,9 +35,17 @@ The models used in this service are automatically downloaded from Hugging Face u
 * Other models can be added as needed.
 
 ## Setup Instructions
-The setup is fully handled through Docker, including model downloads and environment setup. 
-No additional steps are required to set up Python locally.
+//first they must run the download-models.sh script to download the models
+//then they can run the docker-compose up --build command to start the service
 
+### 1. Download the Models
+Run the following command to download the models:
+```bash
+./download-models.sh
+```
+
+### 2. Start the Service
+To start the service, run the following command:
 ```bash
 docker-compose up --build
 ```
