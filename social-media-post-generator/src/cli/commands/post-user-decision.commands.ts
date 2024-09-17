@@ -2,7 +2,7 @@ import { NODE_POST_PUBLISHING } from "@nodes/post-publishing";
 import { NODE_CONTEXT_PREPARATION } from "@nodes/context-preparation";
 import { END } from "@langchain/langgraph";
 import { NODE_POST_IMAGE_PROMPT_CREATION } from "@nodes/post-image-prompt-creation";
-import { Command } from "@cli/command.handler";
+import { Command } from "@common-cli/command.handler";
 
 const POST_USER_DECISION_COMMANDS = Object.freeze({
   YES: {

@@ -2,8 +2,8 @@ import promptUser from "@utils/prompt-user.util";
 import { logger } from "@utils/colored-log.util";
 import { GraphState } from "@state/graph-args.state";
 import { z } from "zod";
-import { CommandHandler } from "@cli/command.handler";
 import POST_USER_DECISION_COMMANDS from "@cli/commands/post-user-decision.commands";
+import { CommandHandler } from "@common-cli/command.handler";
 
 export const NODE_POST_USER_DECISION = "post-user-decision.node";
 

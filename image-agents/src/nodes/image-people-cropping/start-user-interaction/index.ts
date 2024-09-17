@@ -1,9 +1,9 @@
-import promptUser from "@utils/prompt-user.util";
-import { logger } from "@utils/colored-log.util";
-import getImageList from "@utils/get-image-list.util";
 import { GraphState } from "@state/graph-args.state";
-import { Command } from "@cli/command.handler";
 import { END } from "@langchain/langgraph";
+import getImageList from "@utils/get-image-list.util";
+import { logger } from "@utils/colored-log.util";
+import { Command } from "@common-cli/command.handler";
+import promptUser from "@utils/prompt-user.util";
 
 export const NODE_IMAGE_CROPPING_START_USER_INTERACTION =
   "image-cropping.start-user-interaction.node";
@@ -17,7 +17,7 @@ export const startImageCroppingInteractionNode = async (
       NODE_IMAGE_CROPPING_START_USER_INTERACTION,
       "No images found in the directory.",
     );
-    return { input: state.output, output: END };
+    return { input: state.output, output: END, logs: [] };
   }
 
   const imageOptions: Command[] = images.map((image, index) => ({
@@ -35,5 +35,8 @@ export const startImageCroppingInteractionNode = async (
   return {
     input: state.output,
     output: selectedImage,
+    logs: [
+      `${NODE_IMAGE_CROPPING_START_USER_INTERACTION}: Selected image: ${selectedImage}`,
+    ],
   };
 };

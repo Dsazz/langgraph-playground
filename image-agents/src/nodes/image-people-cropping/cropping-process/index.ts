@@ -1,10 +1,10 @@
-import { logger } from "@utils/colored-log.util";
 import { GraphState } from "@state/graph-args.state";
 import { z } from "zod";
-import performanceTime from "@utils/performance.util";
 import path from "node:path";
-import { ROOT_DIR } from "@constants/path.constant";
 import ExtractPeopleTool from "@tools/extract-people.tool";
+import { logger } from "@utils/colored-log.util";
+import performanceTime from "@utils/performance.util";
+import { ROOT_DIR } from "@constants/path.constant";
 
 export const NODE_IMAGE_CROPPING_PROCESS = "image-cropping.process.node";
 
@@ -39,5 +39,6 @@ export const imageCroppingProcessNode = async (
   return {
     input: output,
     output: result,
+    logs: [`${NODE_IMAGE_CROPPING_PROCESS}: ${result}`],
   };
 };

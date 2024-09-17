@@ -1,9 +1,9 @@
-import { logger } from "@utils/colored-log.util";
 import { GraphState } from "@state/graph-args.state";
 import { z } from "zod";
 import ImageRecognitionTool from "@tools/image-recognition.tool";
-import performanceTime from "@utils/performance.util";
 import path from "node:path";
+import { logger } from "@utils/colored-log.util";
+import performanceTime from "@utils/performance.util";
 import { ROOT_DIR } from "@constants/path.constant";
 
 export const NODE_IMAGE_RECOGNITION_PROCESS = "image-recognition.process.node";
@@ -33,5 +33,6 @@ export const imageRecognitionProcessNode = async (
   return {
     input: output,
     output: result,
+    logs: [`${NODE_IMAGE_RECOGNITION_PROCESS}: ${result}`],
   };
 };

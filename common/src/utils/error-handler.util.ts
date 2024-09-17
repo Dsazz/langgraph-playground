@@ -1,5 +1,5 @@
 import { ZodError } from "zod";
-import { logger } from "@utils/colored-log.util";
+import { logger } from "./colored-log.util.js";
 import { isAxiosError } from "axios";
 
 const errorHandler = (context: string, error: unknown) => {

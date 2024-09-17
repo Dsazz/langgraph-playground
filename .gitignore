@@ -6,3 +6,12 @@ dist
 .venv
 venv
 src/generated/**
+
+*/**/node_modules
+*/**/dist
+*/**/.env
+*/**/.idea
+*/**/.vscode
+*/**/.venv
+*/**/venv
+*/**/tsconfig.tsbuildinfo

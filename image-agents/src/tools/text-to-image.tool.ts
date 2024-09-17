@@ -2,14 +2,14 @@ import axios from "axios";
 import imageType from "image-type";
 import path from "node:path";
 import fs from "node:fs";
-import { logger } from "@utils/colored-log.util";
 import process from "node:process";
 import { DynamicStructuredTool } from "@langchain/core/tools";
 import { z } from "zod";
 import { from } from "rxjs";
 import { catchError, retry, switchMap } from "rxjs/operators";
 import { firstValueFrom } from "rxjs";
-import { ROOT_DIR } from "@constants/path.constant";
+import { logger } from "@utils/colored-log.util.js";
+import { ROOT_DIR } from "@constants/path.constant.js";
 
 const TEXT_TO_IMAGE_MODEL = "black-forest-labs/FLUX.1-dev";
 const MAX_RETRY_COUNT = 3;

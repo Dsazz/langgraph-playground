@@ -1,6 +1,5 @@
 import axios, { AxiosError } from "axios";
 import process from "node:process";
-import { logger } from "@utils/colored-log.util";
 import { DynamicStructuredTool } from "@langchain/core/tools";
 import { z } from "zod";
 import imageType from "image-type";
@@ -9,6 +8,7 @@ import { catchError, retry } from "rxjs/operators";
 import { RetryConfig } from "rxjs/internal/operators/retry";
 import fs from "fs";
 import FormData from "form-data";
+import { logger } from "@utils/colored-log.util.js";
 
 const HUGGINGFACE_MODEL = "Salesforce/blip-image-captioning-large";
 const MAX_RETRIES = 3;

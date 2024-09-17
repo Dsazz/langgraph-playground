@@ -1,6 +1,6 @@
+import { ROOT_DIR } from "../constants/path.constant.js";
+import path from "node:path";
 import fs from "fs";
-import path from "path";
-import { ROOT_DIR } from "@constants/path.constant";
 
 const IMAGE_DIR = path.join(ROOT_DIR, "images");
 const IMAGE_EXTENSIONS = /\.(jpg|jpeg|png|gif|webp)$/;

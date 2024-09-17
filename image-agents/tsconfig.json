@@ -8,7 +8,6 @@
     "lib": ["esnext", "dom"],
     "composite": true,
     "target": "ES2021",
-    "module": "nodenext",
     "moduleResolution": "node",
     "sourceMap": true,
     "noImplicitReturns": true,
@@ -24,15 +23,21 @@
     "resolveJsonModule": true,
     "typeRoots": ["./src/@types", "./node_modules/@types"],
     "paths": {
-      "@constants/*": ["src/constants/*"],
+      "@constants/*": ["../common/dist/constants/*"],
+      "@utils/*": ["../common/dist/utils/*"],
+      "@common-cli/*": ["../common/dist/cli/*"],
       "@conditions/*": ["src/conditions/*"],
       "@nodes/*": ["src/nodes/*"],
-      "@utils/*": ["src/utils/*"],
       "@state/*": ["src/state/*"],
       "@cli/*": ["src/cli/*"],
-      "@tools/*": ["src/tools/*"],
-    }
+      "@tools/*": ["src/tools/*"]
+    },
   },
+  "references": [
+    {
+      "path": "../common"
+    }
+  ],
   "exclude": [
     "node_modules/",
     "dist/",

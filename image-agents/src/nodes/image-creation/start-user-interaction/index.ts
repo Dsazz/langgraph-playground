@@ -15,5 +15,8 @@ export const startImageCreationInteractionNode = async (
   return {
     input: state.output,
     output: imageTopic,
+    logs: [
+      `${NODE_IMAGE_CREATION_START_USER_INTERACTION}: Selected image topic: ${imageTopic}`,
+    ],
   };
 };

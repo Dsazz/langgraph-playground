@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "./dist",
+    "composite": true,  // Important for project references
+    "rootDir": "./src",
+    "module": "NodeNext",
+    "target": "ES2021",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}

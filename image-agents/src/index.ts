@@ -1,16 +1,14 @@
-import { logger } from "@utils/colored-log.util";
-import errorHandler from "@utils/error-handler.util";
 import { channels } from "@state/graph-args.state";
 import { END, START, StateGraph } from "@langchain/langgraph";
 import {
   NODE_IMAGE_RECOGNITION_START_USER_INTERACTION,
   startImageRecognitionInteractionNode,
-} from "src/nodes/image-recognition/start-user-interaction";
+} from "@nodes/image-recognition/start-user-interaction";
 import shouldContinueImageHandlingCondition from "@conditions/should-continue-image-handling.condition";
 import {
   imageRecognitionProcessNode,
   NODE_IMAGE_RECOGNITION_PROCESS,
-} from "src/nodes/image-recognition/recognition-process";
+} from "@nodes/image-recognition/recognition-process";
 import {
   NODE_IMAGE_CREATION_START_USER_INTERACTION,
   startImageCreationInteractionNode,
@@ -31,6 +29,8 @@ import {
   imageCroppingProcessNode,
   NODE_IMAGE_CROPPING_PROCESS,
 } from "@nodes/image-people-cropping/cropping-process";
+import { logger } from "@utils/colored-log.util";
+import errorHandler from "@utils/error-handler.util";
 
 const workflow = new StateGraph({ channels })
   /* Define nodes */

@@ -1,4 +1,4 @@
-import { logger } from "@utils/colored-log.util";
+import { logger } from "./colored-log.util.js";
 
 const performanceTime = async <T>(callback: () => Promise<T>): Promise<T> => {
   const start = performance.now();

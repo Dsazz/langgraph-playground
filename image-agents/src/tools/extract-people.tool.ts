@@ -1,12 +1,12 @@
 import axios, { AxiosError } from "axios";
 import process from "node:process";
-import { logger } from "@utils/colored-log.util";
 import { DynamicStructuredTool } from "@langchain/core/tools";
 import { z } from "zod";
 import fs from "fs";
 import FormData from "form-data";
 import path from "node:path";
-import { ROOT_DIR } from "@constants/path.constant";
+import { ROOT_DIR } from "@constants/path.constant.js";
+import { logger } from "@utils/colored-log.util.js";
 
 async function toolsServiceHandler(imagePath: string): Promise<string> {
   try {

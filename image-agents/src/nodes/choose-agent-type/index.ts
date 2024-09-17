@@ -33,5 +33,6 @@ export const chooseAgentTypeNode = async (
   return {
     input: state.output,
     output: selectedAgent,
+    logs: [`${NODE_CHOOSE_AGENT_TYPE}: Selected agent: ${selectedAgent}`],
   };
 };

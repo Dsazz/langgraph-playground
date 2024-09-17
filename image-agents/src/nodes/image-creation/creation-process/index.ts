@@ -1,6 +1,4 @@
 import { ChatPromptTemplate } from "@langchain/core/prompts";
-import trim from "@utils/trim-extra-spaces.util";
-import { logger } from "@utils/colored-log.util";
 import { GraphState } from "@state/graph-args.state";
 import { z } from "zod";
 import { ChatOpenAI } from "@langchain/openai";
@@ -8,6 +6,8 @@ import process from "node:process";
 import TextToImageTool from "@tools/text-to-image.tool";
 import ImageRecognitionTool from "@tools/image-recognition.tool";
 import { AgentExecutor, createToolCallingAgent } from "langchain/agents";
+import { logger } from "@utils/colored-log.util";
+import trim from "@utils/trim-extra-spaces.util";
 
 export const NODE_IMAGE_CREATION_PROCESS = "image-creation.process.node";
 
@@ -68,5 +68,6 @@ export const imageCreationProcessNode = async (
   return {
     input,
     output,
+    logs: [`${NODE_IMAGE_CREATION_PROCESS}: Image created: ${output}`],
   };
 };

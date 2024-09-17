@@ -1,4 +1,4 @@
-import { logger } from "@utils/colored-log.util";
+import { logger } from "../utils/colored-log.util.js";
 
 export interface Command {
   key: string;

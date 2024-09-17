@@ -1,5 +1,5 @@
 import inquirer from "inquirer";
-import { Command } from "@cli/command.handler";
+import { Command } from "../cli/command.handler.js";
 
 const promptUser = async (
   message: string,

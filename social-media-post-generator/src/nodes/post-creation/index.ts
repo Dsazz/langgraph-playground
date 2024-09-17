@@ -15,6 +15,9 @@ import {
 import { logger } from "@utils/colored-log.util";
 import { GraphState } from "@state/graph-args.state";
 import { z } from "zod";
+import { StringOutputParser } from "@langchain/core/output_parsers";
+import { RunnableSequence } from "@langchain/core/runnables";
+import { ChatOpenAI } from "@langchain/openai";
 
 export const NODE_POST_CREATION = "post-creation.node";
 
@@ -55,8 +58,16 @@ export const postCreationNode = async ({
       `),
     ),
   ]);
-  const chain = chatPrompt.pipe(getLLM());
-  const { content } = await chain.invoke({});
+
+  const outputParser = new StringOutputParser();
+  const llm = new ChatOpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+    modelName: "gpt-4o-2024-08-06",
+    temperature: 0.8,
+  });
+  const chain = chatPrompt.pipe(llm).pipe(outputParser);
+
+  const content = await chain.invoke({});
   logger.success(NODE_POST_CREATION, "Post created successfully!");
 
   return {
@@ -64,10 +75,10 @@ export const postCreationNode = async ({
       handlingInfo: agentState.handlingInfo.update({
         handledBy: NODE_POST_CREATION,
         input: agentState.handlingInfo.output,
-        output: content.toString(),
+        output: content,
       }),
       postData: agentState.postData.update({
-        content: content.toString(),
+        content: content,
       }),
     }),
   };

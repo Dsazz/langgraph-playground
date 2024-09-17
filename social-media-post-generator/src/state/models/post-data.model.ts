@@ -1,4 +1,4 @@
-import Updatable from "@state/models/abstract/updatable.model";
+import Updatable from "@state/models/abstract/updatable.model.js";
 
 export const POST_APPROVED_MARK = "[POST_APPROVED]";
 class PostData extends Updatable<PostData> {

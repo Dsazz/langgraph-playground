@@ -8,7 +8,9 @@
     "lib": ["esnext", "dom"],
     "composite": true,
     "target": "ES2021",
-    "module": "nodenext",
+    "module": "NodeNext",
+    "strictNullChecks": true,
+    "esModuleInterop": true,
     "moduleResolution": "node",
     "sourceMap": true,
     "noImplicitReturns": true,
@@ -23,14 +25,20 @@
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "paths": {
-      "@constants/*": ["src/constants/*"],
+      "@constants/*": ["../common/dist/constants/*"],
+      "@utils/*": ["../common/dist/utils/*"],
+      "@common-cli/*": ["../common/dist/cli/*"],
       "@conditions/*": ["src/conditions/*"],
       "@nodes/*": ["src/nodes/*"],
-      "@utils/*": ["src/utils/*"],
       "@state/*": ["src/state/*"],
-      "@cli/*": ["src/cli/*"],
-    }
+      "@cli/*": ["src/cli/*"]
+    },
   },
+  "references": [
+    {
+      "path": "../common"
+    }
+  ],
   "exclude": [
     "node_modules/",
     "dist/",

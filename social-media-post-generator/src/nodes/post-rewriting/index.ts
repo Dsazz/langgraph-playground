@@ -1,6 +1,3 @@
-import { SystemMessage } from "@langchain/core/messages";
-import { ChatPromptTemplate } from "@langchain/core/prompts";
-import getLLM from "@utils/get-llm.util";
 import trim from "@utils/trim-extra-spaces.util";
 import {
   CAN_NOT,
@@ -17,6 +14,9 @@ import {
 import { logger } from "@utils/colored-log.util";
 import { GraphState } from "@state/graph-args.state";
 import { z } from "zod";
+import { ChatPromptTemplate } from "@langchain/core/prompts";
+import { StringOutputParser } from "@langchain/core/output_parsers";
+import { ChatOpenAI } from "@langchain/openai";
 
 export const NODE_POST_REWRITING = "post-rewriting.node";
 const INPUT = z.object({
@@ -40,8 +40,9 @@ export const postRewritingNode = async ({
   const { input: critique, output } = handlingInfo;
   const { content: post, topic, context } = postData;
 
-  const chatPrompt = ChatPromptTemplate.fromMessages([
-    new SystemMessage(
+  const prompt = ChatPromptTemplate.fromMessages([
+    [
+      "system",
       //Write AI prompt here about the Twitter post criticizing
       trim(`
         ${INSTRUCTIONS}:
@@ -68,10 +69,17 @@ export const postRewritingNode = async ({
           ${DO_NOT} add any hypothetical information or hallucinations.
           ${DO_NOT} use internet search engines to find additional information.
       `),
-    ),
+    ],
   ]);
 
-  const chain = chatPrompt.pipe(getLLM());
+  const outputParser = new StringOutputParser();
+  const llm = new ChatOpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+    modelName: "gpt-4o-2024-08-06",
+    temperature: 0.8,
+  });
+  const chain = prompt.pipe(llm).pipe(outputParser);
+
   const result = await chain.invoke({});
   logger.success(NODE_POST_REWRITING, "Post rewritten successfully!");
 
@@ -80,10 +88,10 @@ export const postRewritingNode = async ({
       handlingInfo: agentState.handlingInfo.update({
         handledBy: NODE_POST_REWRITING,
         input: output,
-        output: result.content.toString(),
+        output: result,
       }),
       postData: agentState.postData.update({
-        content: result.content.toString(),
+        content: result,
       }),
     }),
   };

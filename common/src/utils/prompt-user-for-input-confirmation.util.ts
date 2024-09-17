@@ -1,5 +1,5 @@
 import inquirer from "inquirer";
-import { logger } from "@utils/colored-log.util";
+import { logger } from "./colored-log.util.js";
 
 const promptUserForInputConfirmation = async (
   message: string,
