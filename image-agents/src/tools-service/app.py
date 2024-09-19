@@ -79,7 +79,7 @@ async def extract_people(file: UploadFile = File(...)):
         # If no people detected, raise an error
         if people.empty:
             logger.warning("No people detected in the image")
-            raise HTTPException(status_code=404, detail="No people detected in the image")
+            raise HTTPException(status_code=400, detail="No people detected in the image")
 
         # Calculate the bounding box around all detected people
         x_min = int(people['xmin'].min())

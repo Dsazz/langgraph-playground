@@ -56,7 +56,7 @@ The workflows are orchestrated by the state graph defined in `index.ts`. A typic
    The `tools-service` is dockerized and provides backend tools for the workflows. To start the Docker services, use:
 
    ```bash
-   docker-compose up --build
+   docker compose up --build
    ```
 
 3. **Run the Workflow**:

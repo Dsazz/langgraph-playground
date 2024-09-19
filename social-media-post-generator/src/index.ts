@@ -67,14 +67,15 @@ const workflow = new StateGraph(graphStateArgs)
   )
   .addEdge(NODE_POST_PUBLISHING, END);
 
-const graph = workflow.compile({
-  // checkpointer: new MemorySaver(),
-});
+const graph = workflow.compile({});
 
 const CURRENT_POST_TOPIC = "top 5 Tech news today";
 async function runGraph() {
-  logger.info1("graph-workflow", "-> Invoking the workflow...");
   try {
+    logger.info1(
+      "graph-workflow",
+      `Starting the workflow with topic: "${CURRENT_POST_TOPIC}"`,
+    );
     await graph.invoke({
       agentState: AgentState.initialize({
         postData: new PostData().update({ topic: CURRENT_POST_TOPIC }),

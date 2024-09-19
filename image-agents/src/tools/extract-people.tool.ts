@@ -36,9 +36,9 @@ async function toolsServiceHandler(imagePath: string): Promise<string> {
   } catch (error) {
     logger.error(
       "extract-people-from-image",
-      `Error extracting people from image: ${(error as AxiosError).message}`,
+      `No people detected in the image`,
     );
-    throw new Error("Failed to extract people from image.");
+    throw new Error("No people detected in the image");
   }
 }
 
