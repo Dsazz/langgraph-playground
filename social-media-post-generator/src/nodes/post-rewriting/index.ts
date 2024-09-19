@@ -11,12 +11,12 @@ import {
   REMINDER,
   USE_ONLY,
 } from "@constants/prompt-terminology.constant";
-import { logger } from "@utils/colored-log.util";
 import { GraphState } from "@state/graph-args.state";
 import { z } from "zod";
 import { ChatPromptTemplate } from "@langchain/core/prompts";
 import { StringOutputParser } from "@langchain/core/output_parsers";
 import { ChatOpenAI } from "@langchain/openai";
+import { logger } from "@utils/colored-log.util";
 
 export const NODE_POST_REWRITING = "post-rewriting.node";
 const INPUT = z.object({

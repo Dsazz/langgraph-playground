@@ -2,8 +2,8 @@ import { GraphState } from "@state/graph-args.state";
 import { END } from "@langchain/langgraph";
 import getImageList from "@utils/get-image-list.util";
 import { logger } from "@utils/colored-log.util";
-import promptUser from "@utils/prompt-user.util";
 import { Command } from "@common-cli/command.handler";
+import promptUser from "@utils/prompt-user.util";
 
 export const NODE_IMAGE_RECOGNITION_START_USER_INTERACTION =
   "image-recognition.start-user-interaction.node";

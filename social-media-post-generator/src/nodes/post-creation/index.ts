@@ -1,6 +1,5 @@
 import { SystemMessage } from "@langchain/core/messages";
 import { ChatPromptTemplate } from "@langchain/core/prompts";
-import getLLM from "@utils/get-llm.util";
 import trim from "@utils/trim-extra-spaces.util";
 import {
   CAN_NOT,
@@ -16,7 +15,6 @@ import { logger } from "@utils/colored-log.util";
 import { GraphState } from "@state/graph-args.state";
 import { z } from "zod";
 import { StringOutputParser } from "@langchain/core/output_parsers";
-import { RunnableSequence } from "@langchain/core/runnables";
 import { ChatOpenAI } from "@langchain/openai";
 
 export const NODE_POST_CREATION = "post-creation.node";
